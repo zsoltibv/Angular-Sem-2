@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500");
+
+* {
+  font-family: "Inter", sans-serif;
+  color: white;
+}
+
+::ng-deep body{
+  background-color: #1f2937;
+}
