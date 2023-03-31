@@ -5,6 +5,13 @@ import { Component } from '@angular/core';
   templateUrl: './game-board.component.html',
   styleUrls: ['./game-board.component.css']
 })
-export class GameBoardComponent {
 
+export class GameBoardComponent {
+  boardSize: any[] = [1, 2, 3, 4, 5, 6, 7, 8]
+
+  // gameBoard: GameTile[] = [
+  //   { id: 1, name: "Problem 1" },
+  //   { id: 2, name: "Problem 2" },
+  //   { id: 3, name: "Problem 3" }
+  // ]
 }
