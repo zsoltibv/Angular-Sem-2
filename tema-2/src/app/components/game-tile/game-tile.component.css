@@ -1,0 +1,19 @@
+.game-tile {
+  height: 98px;
+  width: 98px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.x-symbol{
+  height: 100px;
+  width: 100px;
+}
+
+.o-symbol{
+  height: 80px;
+  width: 80px;
+}
+

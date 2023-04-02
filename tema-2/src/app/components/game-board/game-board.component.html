@@ -1,13 +1,9 @@
-<div style="width:800px;
-            height:800px;
-            background-color: grey;">
-
-  <div *ngFor="let rows of boardSize; let x=index">
-
-  <div style="display:flex;">
-    <!-- <app-game-tile *ngFor="let lines of boardSize;let y=index" [gameTile]="gameTile"></app-game-tile> -->
+<div class="container-wraper">
+  <div class="container">
+    <div *ngFor="let rows of this.game.gameTiles; let row = index" class="rows">
+      <div *ngFor="let lines of this.game.gameTiles; let line = index" class="columns">
+        <app-game-tile [gameTile]="this.game.gameTiles[row][line]"></app-game-tile>
+      </div>
+    </div>
   </div>
-
-  </div>
-
 </div>

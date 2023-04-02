@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GameEngineService } from "src/app/services/game-engine.service";
 
 @Component({
   selector: 'app-game-board',
@@ -7,11 +8,7 @@ import { Component } from '@angular/core';
 })
 
 export class GameBoardComponent {
-  boardSize: any[] = [1, 2, 3, 4, 5, 6, 7, 8]
-
-  // gameBoard: GameTile[] = [
-  //   { id: 1, name: "Problem 1" },
-  //   { id: 2, name: "Problem 2" },
-  //   { id: 3, name: "Problem 3" }
-  // ]
+  constructor(public game: GameEngineService) {
+    this.game.initTiles(3, 3);
+  }
 }
