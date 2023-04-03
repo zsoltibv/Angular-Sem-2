@@ -120,10 +120,9 @@ export class GameEngineService {
 
   onTileClick(tile: GameTile): void {
 
-    if (this.finalGameMessage == "") {
-      if (tile.symbolToString() == "undefined") {
-        tile.setSymbol(this.currentPlayer);
-      }
+    if (this.finalGameMessage == "" && tile.symbolToString() == "undefined") {
+
+      tile.setSymbol(this.currentPlayer);
 
       if (this.isWin()) {
         this.finalGameMessage = this.currentPlayer + " won!";
