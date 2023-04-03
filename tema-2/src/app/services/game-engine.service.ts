@@ -36,14 +36,15 @@ export class GameEngineService {
 
     // Check rows
     for (let i = 0; i < numRows; i++) {
-      let colWinner = this.gameTiles[i][0].symbolToString();
+      let rowWinner = this.gameTiles[i][0].symbolToString();
       for (let j = 1; j < numCols; j++) {
-        if (this.gameTiles[i][j].symbolToString() !== colWinner || this.gameTiles[i][j].symbolToString() == "undefined") {
-          colWinner = '';
+        if (this.gameTiles[i][j].symbolToString() !== rowWinner || this.gameTiles[i][j].symbolToString() == "undefined") {
+          rowWinner = '';
           break;
         }
       }
-      if (colWinner !== '') {
+      if (rowWinner !== '') {
+        console.log(1);
         return true;
       }
     }
@@ -52,12 +53,13 @@ export class GameEngineService {
     for (let i = 0; i < numCols; i++) {
       let colWinner = this.gameTiles[0][i].symbolToString();
       for (let j = 1; j < numRows; j++) {
-        if (this.gameTiles[j][i].symbolToString() !== colWinner || this.gameTiles[i][j].symbolToString() == "undefined") {
+        if (this.gameTiles[j][i].symbolToString() !== colWinner || this.gameTiles[j][i].symbolToString() == "undefined") {
           colWinner = '';
           break;
         }
       }
       if (colWinner !== '') {
+        console.log(2);
         return true;
       }
     }
@@ -89,11 +91,11 @@ export class GameEngineService {
     return false;
   }
 
-  isDraw(): boolean {
+  isFull(): boolean {
     const numRows = this.gameTiles.length;
     const numCols = this.gameTiles[0].length;
 
-    let count:number = 0;
+    let count: number = 0;
 
     for (let i = 0; i < numRows; i++) {
       for (let j = 0; j < numCols; j++) {
@@ -108,16 +110,15 @@ export class GameEngineService {
 
   onTileClick(tile: GameTile): void {
 
-    if (tile.symbolToString() == "undefined" && !this.isWin() && !this.isDraw()) {
+    if (tile.symbolToString() == "undefined") {
       tile.setSymbol(this.currentPlayer);
       this.changePlayer();
     }
 
-    if (this.isDraw()) {
-      console.log("draw");
-    }
-    else if (this.isWin()) {
+    if (this.isWin()) {
       console.log("win");
+    } else if (this.isFull()) {
+      console.log("draw");
     }
   }
 }

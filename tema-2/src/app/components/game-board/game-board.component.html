@@ -5,5 +5,11 @@
         <app-game-tile [gameTile]="this.game.gameTiles[row][line]"></app-game-tile>
       </div>
     </div>
+
+    <div class="overlay" *ngIf="this.game.isFull() || this.game.isWin()">
+      <button>Replay</button>
+    </div>
   </div>
 </div>
+
+
