@@ -8,6 +8,7 @@ export class GameEngineService {
 
   gameTiles: GameTile[][] = []
   currentPlayer: string = "X";
+  finalGameMessage: string = "";
 
   constructor() { }
 
@@ -20,6 +21,17 @@ export class GameEngineService {
       }
       this.gameTiles.push(rowsAux);
     }
+  }
+
+  clearTiles(rows: number, columns: number): void {
+
+    for (let i = 0; i < rows; i++) {
+      for (let j = 0; j < columns; j++) {
+        this.gameTiles[i][j] = new GameTile(i, j, "undefined");
+      }
+    }
+    this.finalGameMessage = "";
+    this.currentPlayer = "X";
   }
 
   changePlayer(): void {
@@ -44,7 +56,6 @@ export class GameEngineService {
         }
       }
       if (rowWinner !== '') {
-        console.log(1);
         return true;
       }
     }
@@ -59,7 +70,6 @@ export class GameEngineService {
         }
       }
       if (colWinner !== '') {
-        console.log(2);
         return true;
       }
     }
@@ -110,15 +120,18 @@ export class GameEngineService {
 
   onTileClick(tile: GameTile): void {
 
-    if (tile.symbolToString() == "undefined") {
-      tile.setSymbol(this.currentPlayer);
-      this.changePlayer();
-    }
+    if (this.finalGameMessage == "") {
+      if (tile.symbolToString() == "undefined") {
+        tile.setSymbol(this.currentPlayer);
+      }
 
-    if (this.isWin()) {
-      console.log("win");
-    } else if (this.isFull()) {
-      console.log("draw");
+      if (this.isWin()) {
+        this.finalGameMessage = this.currentPlayer + " won!";
+      } else if (this.isFull()) {
+        this.finalGameMessage = "Draw!";
+      } else {
+        this.changePlayer();
+      }
     }
   }
 }

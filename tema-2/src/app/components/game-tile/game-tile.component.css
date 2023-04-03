@@ -1,18 +1,24 @@
 .game-tile {
   height: 98px;
   width: 98px;
-  border: 1px solid black;
+  border: 1px solid white;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
+.game-tile:hover{
+  cursor: pointer;
+}
+
 .x-symbol{
+  fill: #115e59;
   height: 100px;
   width: 100px;
 }
 
 .o-symbol{
+  fill: white;
   height: 80px;
   width: 80px;
 }
