@@ -10,6 +10,13 @@ import { TitleCasePipe } from './pipes/title-case.pipe';
 import { MyDatePipe } from './pipes/my-date.pipe';
 import { MyCurrencyPipe } from './pipes/my-currency.pipe';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -24,7 +31,15 @@ import { NavbarComponent } from './components/navbar/navbar.component';
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [MyPipePipe, TitleCasePipe, MyDatePipe, MyCurrencyPipe],
   bootstrap: [AppComponent]

@@ -1,0 +1,13 @@
+{
+  "select-message": "適用するパイプを選択してください",
+  "apply-message": "パイプを適用する",
+  "result-message": "結果",
+  "heading-title": "パイプスイッチャー",
+  "uppercase": "大文字",
+  "lowercase": "小文字",
+  "titlecase": "最初の文字を大文字に",
+  "date": "日付",
+  "currency": "通貨",
+  "none": "何もなし",
+  "placeholder-text": "テキストを入力してください..."
+}

@@ -1,0 +1,13 @@
+{
+  "select-message": "Selecteaza un pipe pentru a aplica",
+  "apply-message": "Aplica pipe",
+  "result-message": "Rezultat",
+  "heading-title": "Comutator de pipe-uri",
+  "uppercase": "litere mari",
+  "lowercase": "litere mici",
+  "titlecase": "initiala majuscula",
+  "date": "data",
+  "currency": "moneda",
+  "none": "nimic",
+  "placeholder-text": "Introdu text..."
+}

@@ -1,0 +1,13 @@
+{
+  "select-message": "Selecteer een pipe om toe te passen",
+  "apply-message": "Pas pipe toe",
+  "result-message": "Resultaat",
+  "heading-title": "Pipe-schakelaar",
+  "uppercase": "hoofdletters",
+  "lowercase": "kleine letters",
+  "titlecase": "Titel case",
+  "date": "datum",
+  "currency": "valuta",
+  "none": "niets",
+  "placeholder-text": "Voer tekst in..."
+}

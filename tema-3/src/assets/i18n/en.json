@@ -1,0 +1,7 @@
+{
+  "select-message": "Select a pipe to apply",
+  "apply-message": "Apply pipe",
+  "result-message": "Result",
+  "heading-title": "Pipe switcher",
+  "placeholder-text": "Enter text..."
+}

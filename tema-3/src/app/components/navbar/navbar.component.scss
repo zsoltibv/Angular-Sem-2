@@ -1,5 +1,26 @@
-.navbar-container{
+*{
+  font-family: 'Inter', sans-serif;
+}
+
+.navbar-container {
   background-color: #1e293b;
   border-bottom: 1px solid gray;
-  height: 60px;
+  .navbar{
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h1{
+      color: white;
+      font-weight: 400;
+      font-size: 22px;
+    }
+  }
+
+  padding: 0 20px;
+  .language-switcher {
+    select {
+      padding: 5px 10px;
+    }
+  }
 }

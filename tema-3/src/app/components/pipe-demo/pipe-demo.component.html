@@ -1,20 +1,20 @@
 <div class="container">
   <div class="inner-container">
     <div class="header">
-      <h1>Select pipe to apply</h1>
+      <h1>{{ "select-message" | translate }}</h1>
     </div>
     <div class="controls">
-      <input type="text" [(ngModel)]="value" placeholder="Enter text..."/>
+      <input type="text" [(ngModel)]="value" placeholder="{{ 'placeholder-text' | translate }}" />
       <select name="" id="dropdown-menu" [(ngModel)]="pipe">
-        <option value="" default>none</option>
+        <option value="" default>{{'none' | translate}}</option>
         <option *ngFor="let option of options">
-          {{ option }}
+          {{ option | translate }}
         </option>
       </select>
-      <button (click)="applyPipe()">Apply Pipe</button>
+      <button (click)="applyPipe()">{{"apply-message" | translate }}</button>
     </div>
     <div class="result">
-      <p>Result: {{ result }}</p>
+      <p>{{"result-message" | translate }}: {{result}}</p>
     </div>
   </div>
 </div>

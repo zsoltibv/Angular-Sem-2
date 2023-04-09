@@ -1,5 +1,15 @@
 <div class="navbar-container">
   <div class="navbar">
-    navbar
+    <div class="header">
+      <h1>{{ "heading-title" | translate }}</h1>
+    </div>
+    <div class="language-switcher">
+      <select name="" id="" (change)="selectLanguage($event)">
+        <option value="en">English</option>
+        <option value="ro">Romanian</option>
+        <option value="nl">Dutch</option>
+        <option value="jp">Japanese</option>
+      </select>
+    </div>
   </div>
 </div>
