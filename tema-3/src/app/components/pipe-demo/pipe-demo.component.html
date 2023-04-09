@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="inner-container">
+    <div class="header">
+      <h1>Select pipe to apply</h1>
+    </div>
+    <div class="controls">
+      <input type="text" [(ngModel)]="value" placeholder="Enter text..."/>
+      <select name="" id="dropdown-menu" [(ngModel)]="pipe">
+        <option value="" default>none</option>
+        <option *ngFor="let option of options">
+          {{ option }}
+        </option>
+      </select>
+      <button (click)="applyPipe()">Apply Pipe</button>
+    </div>
+    <div class="result">
+      <p>Result: {{ result }}</p>
+    </div>
+  </div>
+</div>
