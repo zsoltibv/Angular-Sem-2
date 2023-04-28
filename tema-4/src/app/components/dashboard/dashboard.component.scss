@@ -1,0 +1,29 @@
+.container{
+  padding: 30px 50px;
+}
+
+.search-field {
+  display: flex;
+  gap: 5px;
+  input {
+    padding: 8px 10px;
+  }
+  button {
+    padding: 0 15px;
+    background-color: #475569;
+    color: white;
+    border: none;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.stocks-container{
+  ul{
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+}
