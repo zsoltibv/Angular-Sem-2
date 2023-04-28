@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="search-container">
+    <div class="search-field">
+      <input [(ngModel)]="symbol" />
+      <button (click)="getStock()">Search Stock</button>
+    </div>
+    <div class="search-results">
+      <app-stock-block [stockInfo]="stockInfo"></app-stock-block>
+    </div>
+  </div>
+
+  <div class="stocks-container">
+    <h1>Popular Stocks</h1>
+    <ul>
+      <li *ngFor="let stock of listOfPopularStocks">
+        <app-stock-block [stockInfo]="stock"></app-stock-block>
+      </li>
+    </ul>
+  </div>
+</div>
