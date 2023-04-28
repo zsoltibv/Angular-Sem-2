@@ -1,0 +1,27 @@
+<div class="game-container">
+  <app-visual [leftLives]="leftLives"></app-visual>
+
+  <div class="inner-container">
+    <div *ngFor="let letter of chosenWord; index as i">
+
+      <ng-template [ngIf]="isAmongstGuessedLetters(i)" [ngIfElse]="elseBlock">
+        <span class="guessed-letter">{{ letter }}</span>
+      </ng-template>
+
+      <ng-template #elseBlock>
+        <span class="not-guessed-letter">_</span>
+      </ng-template>
+
+    </div>
+  </div>
+
+  <ng-template [ngIf]="leftLives!=0" class="controls" [ngIfElse]="elseBlock2">
+    <input type="text" [(ngModel)]="inputWord" maxlength="1"/>
+    <button (click)="guessLetter()">Guess</button>
+  </ng-template>
+
+  <ng-template #elseBlock2>
+    <button (click)="reloadPage()">Try Again</button>
+  </ng-template>
+
+</div>
