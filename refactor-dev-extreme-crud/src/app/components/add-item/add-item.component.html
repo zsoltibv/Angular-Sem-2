@@ -1,0 +1,39 @@
+<form [formGroup]="checkoutForm" (submit)="onFormSummit($event)">
+  <div>Product Name</div>
+  <dx-text-box formControlName="name">
+    <dx-validator>
+      <dxi-validation-rule type="required" message="Product name is required">
+      </dxi-validation-rule>
+
+      <dxi-validation-rule
+        type="stringLength"
+        [min]="2"
+        message="You must have at least 3 chars"
+      >
+      </dxi-validation-rule>
+
+      <dxi-validation-rule
+        type="stringLength"
+        [max]="10"
+        message="You can't have more that 10 chars"
+      >
+      </dxi-validation-rule>
+    </dx-validator>
+  </dx-text-box>
+
+  <div>Supply</div>
+  <dx-text-box formControlName="supply">
+    <dx-validator>
+      <dxi-validation-rule type="required" message="Product name is required">
+      </dxi-validation-rule>
+      <dxi-validation-rule type="numeric" message="You can only have a number">
+      </dxi-validation-rule>
+    </dx-validator>
+  </dx-text-box>
+  <br />
+  <dx-button
+    text="Save item"
+    type="success"
+    [useSubmitBehavior]="true"
+  ></dx-button>
+</form>

@@ -1,0 +1,85 @@
+<div class="table">
+  <dx-data-grid
+    #listOfItemsUI
+    [dataSource]="this.listOfItems"
+    [allowColumnReordering]="true"
+    [allowColumnResizing]="true"
+    (onSelectionChanged)="selectionChanged($event)"
+  >
+    <dxo-state-storing
+      [enabled]="true"
+      type="custom"
+      [customLoad]=""
+      [customSave]=""
+    >
+    </dxo-state-storing>
+    <dxo-editing
+      mode="row"
+      [allowAdding]="false"
+      [allowUpdating]="false"
+      [allowDeleting]="false"
+    >
+    </dxo-editing>
+
+    <dxo-export [enabled]="true" [allowExportSelectedData]="true"></dxo-export>
+    <dxo-selection mode="multiple"></dxo-selection>
+
+    <dxi-column dataField="id" caption="Product ID"></dxi-column>
+    <dxi-column dataField="image" cellTemplate="pictureTemplate"></dxi-column>
+
+    <dxi-column dataField="name" caption="Product Name"></dxi-column>
+
+    <dxi-column dataField="supply" cellTemplate="supplyTemplate"></dxi-column>
+
+    <div *dxTemplate="let data of 'pictureTemplate'">
+      <img [src]="data.value" style="width: 100px" />
+    </div>
+
+    <div *dxTemplate="let data of 'supplyTemplate'">
+      <div *ngIf="data.value > 3">{{ data.value }}</div>
+      <div *ngIf="data.value <= 3 && data.value != 0" style="color: orange">
+        <div *ngIf="data.value == 0">Out of Stock</div>
+
+        <div>
+          <i class="fa-solid fa-triangle-exclamation" id="product"></i>
+
+          {{ data.value }}
+
+          <dx-tooltip
+            target="#product"
+            showEvent="mouseenter"
+            hideEvent="mouseleave"
+            [hideOnOutsideClick]="false"
+          >
+            <div *dxTemplate="let data = data; of: 'content'">Short supply</div>
+          </dx-tooltip>
+        </div>
+      </div>
+    </div>
+  </dx-data-grid>
+</div>
+
+<div class="controls">
+  <dx-button
+    text="Buy item"
+    (onClick)="buyItem()"
+    [disabled]="isSelected"
+  ></dx-button>
+
+  <dx-button text="Add item" (onClick)="addItem()"></dx-button>
+
+  <dx-button
+    text="Edit item"
+    (onClick)="editItem()"
+    [disabled]="isSelected"
+  ></dx-button>
+</div>
+
+<dx-popup
+    #addPopUp
+    [(visible)]="addItemPopUp"
+    [title]="'Add an item'"
+    [width]="400"
+    [height]="240">
+  <app-add-item></app-add-item>
+</dx-popup>
